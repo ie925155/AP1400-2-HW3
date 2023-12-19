@@ -2,7 +2,16 @@
 
 #include "bst.h"
 
-Node*& BST::get_root()
+
+BST::Node::Node(int value, Node* left, Node* right)
+    : value(value), left(left), right(right) {}
+BST::Node::Node()
+    : value(0), left(nullptr), right(nullptr) {}
+BST::Node::Node(const Node &node)
+    : value(node.value), left(node.left), right(node.right) {}
+
+
+BST::Node*& BST::get_root()
 {
     return this->root;
 }
@@ -23,20 +32,20 @@ bool BST::add_node(int value)
     return true;
 }
 
-Node** BST::find_node(int value)
+BST::Node** BST::find_node(int value)
 {
     return NULL;
 }
-Node** BST::find_parrent(int value)
+BST::Node** BST::find_parrent(int value)
 {
     return NULL;
 }
-Node** find_successor(int value)
+BST::Node** BST::find_successor(int value)
 {
     return NULL;
 }
 
-bool delete_node(int value)
+bool BST::delete_node(int value)
 {
     return NULL;
 }
