@@ -17,7 +17,7 @@ class BST {
             Node* right;
     };
     class Node;
-    Node*& get_root();
+    Node*& get_root() const;
     void bfs(std::function<void(Node*& node)> func);
     size_t length();
     bool add_node(int value);
@@ -26,7 +26,9 @@ class BST {
     Node** find_successor(int value);
     bool delete_node(int value);
 private:
-    Node* root;
+    Node* root = nullptr;
 };
+
+std::ostream& operator<<(std::ostream& os, const BST::Node& node);
 
 #endif //BST_H

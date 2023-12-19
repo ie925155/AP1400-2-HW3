@@ -1,4 +1,6 @@
 #include <iostream>
+#include <queue>
+#include <iomanip>
 
 #include "bst.h"
 
@@ -11,9 +13,9 @@ BST::Node::Node(const Node &node)
     : value(node.value), left(node.left), right(node.right) {}
 
 
-BST::Node*& BST::get_root()
+BST::Node*& BST::get_root() const
 {
-    return this->root;
+    return this->root->left;
 }
 
 
@@ -48,4 +50,11 @@ BST::Node** BST::find_successor(int value)
 bool BST::delete_node(int value)
 {
     return NULL;
+}
+
+std::ostream& operator<<(std::ostream& os, const BST::Node& node) {
+	os << std::hex << &node << std::setw(15) << std::dec << "=> value:" << node.value
+	   << std::setw(15) << "left:" << std::left << std::setw(20) << std::hex 
+       << node.left << "right:"<< std::left << std::setw(20) << std::hex << node.right;
+	return os;
 }
